@@ -10,9 +10,9 @@ Host miguel
 
 
 Host master-pdcs
-    Hostname    148.206.50.60
-    User        pdcs
+    Hostname    192.168.0.60
+    User        soporte
         #port   3030
         port    465
-        IdentityFile ~/.ssh/llave-uami
+        IdentityFile ~/.ssh/llave
 
