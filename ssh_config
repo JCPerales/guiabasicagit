@@ -1,0 +1,18 @@
+ControlMaster       auto
+ControlPath     ~/.ssh/%l.%r@%h:%p
+ServerAliveInterval 60
+UserKnownHostsFile /dev/null
+StrictHostKeyChecking no
+
+Host miguel
+        Hostname 192.168.0.26
+        User    soporte
+
+
+Host master-pdcs
+    Hostname    148.206.50.60
+    User        pdcs
+        #port   3030
+        port    465
+        IdentityFile ~/.ssh/llave-uami
+
