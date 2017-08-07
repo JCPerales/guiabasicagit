@@ -1,3 +1,4 @@
+127.0.0.1     localhost
 192.168.0.21	jcpj0
 192.168.0.22	jcpj1
 192.168.0.26	mamv0
@@ -11,6 +12,3 @@
 192.168.0.97	carlos
 192.168.0.100 	luyan
 192.168.0.105	eduardo
-::1		localhost6.localdomain6 localhost6
-
-
