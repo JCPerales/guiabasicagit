@@ -107,12 +107,16 @@ Your public key has been saved in /home/tu_usuario/.ssh/id_rsa.pub.
 
 Para que **github** identifique la llave se tiene que agregar para esto necesitamos de entrar a nuestra cuenta e ir a settings.
 ![settings][1]
+
 luego Seleccionar en "*SSH and GPG keys*"
 ![ssh][2]
+
 seleccionamos "*new SSH key*"
 ![new][3]
+
 Colocamos un nombre a nuestra llave en title y agregamos el contenido de nuestra llave publica.
 ![add][4]
+
 ya por último configuraremos una opcion de nuestro git, colocaremos esto:
 ~~~~~~
 git config remote.origin.url git@github.com:tu_cuenta_github/tu_repositorio.git
