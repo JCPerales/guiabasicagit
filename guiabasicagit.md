@@ -75,3 +75,46 @@ $ git push nombrerepositorio master
 Cabe mencionar que si en el comando `commit` no se da la opcion -m, se abrirá el editor predeterminado para que se describan las notificaciones. En caso de que no se hayan configurado los datos personales, recibiremos un mensaje indicando que es necesario proporcionarlos o que los tomará del sistema.
 
 Después de ejecutar el comando `push` habrá que poner nuestras credenciales de github para que se vean reflejados los cambios en el repositorio remoto, si existe algún conflicto entre versiones, habrá que solucionarlo primero para poder aplicar los cambios al repositorio remoto (lo que implica un `add`, `commit` y `push` de nuevo).
+
+# Autenticar de forma automática
+
+En git, para subir un repositorio o actualizarlo se requiere de que ingreses tus credenciales para autorizar los, sin embargo esto es un problema cuando requieres de que esto se haga de forma automática. Git tiene la posibilidad de que puedas actualizar el repositorio sin necesidad de ingesar las credenciales pertinetes para conectarte al host remoto, para esto vamos a generar una llave que autentique que estamos autorizados para subir contenido, utilizaremos la herramienta ssh-keygen par esto.
+
+#### ssh-keygen
+
+Escribiremos en el bash lo siguente:
+~~~~~
+ssh-keygen -t rsa -b 4096 -C "tu_correo@tu_proveedor.com"
+~~~~~
+El comando `ssh-keygen` crea unas llaves de nuestro equipo(una privada y una publica), la opcion `-t` esta espesificando el tipo de encriptacion que usará en nuestro caso hace uso del tipo "`rsa`", la opción `-b` espesifica la longitud de la llave, que entre más larga mejor encriptación tiene pero tambien realentiza la conexión inicial, se maneja en bits por defecto a 2048 bits en nuestro caso la duplicamos, y la opción `-C` especifica la información del campo de comentario en el archivo de la llave, si no especifica un comentario cuando crea una clave, se crea un comentario predeterminado que incluye el tipo, el creador, la fecha y la hora de la clave, en nuestro caso pusimos el correo que es como nos identificamos en github.
+
+En pantalla nos pedirá un nombre para nuestra llave podemos poner lo que nosotros querramos de preferencia se recomienda un nombre referente al equipo a conectarse con la llave, si no es espesificada por default pondrá de nombre `id_rsa`.
+
+~~~~~
+Enter file in which to save the key (/home/tu_usuario/.ssh/id_rsa): mykey
+~~~~~
+ tambien pedirá una (`passphrase`) que dará una mejor llave pero nos pedirá a cada rato esa clave, por lo tanto lo omitiremos dejandolo vacío, y tambien pedirá la confimacion de este mismo.
+~~~~~
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+~~~~~
+Esto te generará dos llaves la privada y publica, esta última se identificará con la terminación `.pub` se guardarán en el directorio `/home/tu_usuario/.ssh/`.
+~~~~~
+Your identification has been saved in /home/tu_usuario/.ssh/id_rsa.
+Your public key has been saved in /home/tu_usuario/.ssh/id_rsa.pub.
+~~~~~
+#### A gregar la llave a github y Configurar
+
+Para que **github** identifique la llave se tiene que agregar para esto necesitamos de entrar a nuestra cuenta e ir a settings.
+![settings][1]
+luego Seleccionar en "*SSH and GPG keys*"
+![ssh][2]
+seleccionamos "*new SSH key*"
+![new][3]
+Colocamos un nombre a nuestra llave en title y agregamos el contenido de nuestra llave publica.
+![add][4]
+ya por último configuraremos una opcion de nuestro git, colocaremos esto:
+~~~~~~
+git config remote.origin.url git@github.com:tu_cuenta_github/tu_repositorio.git
+~~~~~~
+en donde solo estamos remplazando la ubicación del repositorio hacia tu cuenta de *github*, y listo con eso tu podras actualizar tu repositorio sin necesidad de identificarse.
