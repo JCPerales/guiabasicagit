@@ -127,10 +127,10 @@ git config remote.origin.url git@github.com:tu_cuenta_github/tu_repositorio.git
 ~~~~~~
 en donde solo estamos remplazando la ubicación del repositorio hacia tu cuenta de *github*, y listo con eso tu podras actualizar tu repositorio sin necesidad de identificarse.
 
-[1]: https://github.com/JCPerales/guiabasicagit/tree/master/imagenes/settings.png
+[1]: https://github.com/JCPerales/guiabasicagit/blob/master/imagenes/settings.png
 
-[2]: https://github.com/JCPerales/guiabasicagit/tree/master/imagenes/ssh-key.png
+[2]: https://github.com/JCPerales/guiabasicagit/blob/master/imagenes/ssh-key.png
 
-[3]: https://github.com/JCPerales/guiabasicagit/tree/master/imagenes/new.png
+[3]: https://github.com/JCPerales/guiabasicagit/blob/master/imagenes/new.png
 
-[4]: https://github.com/JCPerales/guiabasicagit/tree/master/imagenes/add-key.png
+[4]: https://github.com/JCPerales/guiabasicagit/blob/master/imagenes/add-key.png
